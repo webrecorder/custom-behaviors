@@ -3,7 +3,7 @@ class Fulcrum
   static id = "Fulcrum";
 
   static isMatch() {
-    return window.location.href.startsWith("https://www.fulcrum.org/epubs/");
+    return window.location.href.startsWith("https://www.fulcrum.org/epubs/") && window === window.top;
   }
 
   static init() {
@@ -17,13 +17,16 @@ class Fulcrum
     if (close) {
       log("Close modal popup");
       close.click();
+      yield {"pages": 0};
     }
 
     const range = document.querySelector("input[type='range']");
 
-    log("Iterate through all pages");
-
     do {
+      if (range) {
+        log(`At page ${range.value} of ${range.max}`);
+      }
+
       if (range && Number(range.value) >= Number(range.max)) {
         log("Done iterating through all pages!");
         break;
@@ -33,13 +36,17 @@ class Fulcrum
       if (!next) {
         break;
       }
+
       next.click();
-      log("Waiting for at least 1 sec or all page content to load");
-      // if autofetcher available, when for at least 1 sec or all fetches to finish
-      if (autofetcher) {
-        await Promise.allSettled([autofetcher.done(), Lib.sleep(1000)]);
-      } else {
-        await Lib.sleep(1000);
+
+      log("Waiting for at least 5 sec or all page content to load");
+
+      await Lib.sleep(5000);
+
+      const iframe = document.querySelector("iframe");
+
+      if (iframe && iframe.contentDocument.readyState !== "complete") {
+        await Lib.sleep(5000);
       }
 
       yield {"pages": pages++};

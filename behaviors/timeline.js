@@ -4,8 +4,8 @@ class Timeline
 
   static isMatch() {
     // TODO: Investigate matching on presence of timeline.js rather than specific URL
-    const url = "https://phd.aydeethegreat.com/a-timeline-of-campus-community-and-national-events-new/"
-    return window.location.href == url && window === window.top;
+    const url = "https://phd.aydeethegreat.com/a-timeline-of-campus-community-and-national-events-new"
+    return window.location.href.startsWith(url) && window === window.top;
   }
 
   static init() {
@@ -21,15 +21,17 @@ class Timeline
       await Lib.sleep(5000);
     }
 
+    const iframeDoc = iframe.contentWindow.document;
+
     // Click on previous as necessary until we're at first slide
     do {
-      const previous = document.querySelector("button.tl-slidenav-previous");
+      const previous = iframeDoc.querySelector("button.tl-slidenav-previous");
       if (!previous) {
         break;
       }
-      
-      const iframe = document.querySelector("iframe.tl-media-item");
-      if (iframe && iframe.contentDocument.readyState !== "complete") {
+
+      const mediaIframe = iframeDoc.querySelector("iframe.tl-media-item");
+      if (mediaIframe && mediaIframe.contentDocument.readyState !== "complete") {
         log("Waiting for embedded media content to load");
         await Lib.sleep(5000);
       }
@@ -46,8 +48,8 @@ class Timeline
         break;
       }
 
-      const iframe = document.querySelector("iframe.tl-media-item");
-      if (iframe && iframe.contentDocument.readyState !== "complete") {
+      const mediaIframe = iframeDoc.querySelector("iframe.tl-media-item");
+      if (mediaIframe && mediaIframe.contentDocument.readyState !== "complete") {
         log("Waiting for embedded media content to load");
         await Lib.sleep(5000);
       }

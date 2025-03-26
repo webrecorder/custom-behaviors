@@ -3,9 +3,10 @@ class Timeline
   static id = "Timeline";
 
   static isMatch() {
+    return true;
     // TODO: Investigate matching on presence of timeline.js rather than specific URL
-    const url = "https://phd.aydeethegreat.com/a-timeline-of-campus-community-and-national-events-new"
-    return window.location.href.startsWith(url) && window === window.top;
+    // const url = "https://phd.aydeethegreat.com/a-timeline-of-campus-community-and-national-events-new"
+    // return window.location.href.startsWith(url) && window === window.top;
   }
 
   static init() {
@@ -14,6 +15,7 @@ class Timeline
 
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
+    let slides = 0;
 
     log("Waiting for all page content to load");
     const iframe = document.querySelector("iframe");
@@ -30,15 +32,8 @@ class Timeline
         break;
       }
 
-      const mediaIframe = iframeDoc.querySelector("iframe.tl-media-item");
-      if (mediaIframe && mediaIframe.contentDocument.readyState !== "complete") {
-        log("Waiting for embedded media content to load");
-        await Lib.sleep(5000);
-      }
-
       log('Moving to previous slide until first slide reached');
       previous.click();
-
     } while(true);
 
     // Click on next until we're at last slide
@@ -56,7 +51,7 @@ class Timeline
 
       log('Moving to next slide');
       next.click();
-
+      yield {"slides": slides++};
     } while(true);
   }
 }

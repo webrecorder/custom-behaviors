@@ -16,6 +16,7 @@ class Timeline
     const { log, Lib, autofetcher } = ctx;
 
     log("Waiting for all page content to load");
+    const iframe = document.querySelector("iframe");
     if (iframe && iframe.contentDocument.readyState !== "complete") {
       await Lib.sleep(5000);
     }
@@ -25,6 +26,12 @@ class Timeline
       const previous = document.querySelector("button.tl-slidenav-previous");
       if (!previous) {
         break;
+      }
+      
+      const iframe = document.querySelector("iframe.tl-media-item");
+      if (iframe && iframe.contentDocument.readyState !== "complete") {
+        log("Waiting for embedded media content to load");
+        await Lib.sleep(5000);
       }
 
       log('Moving to previous slide until first slide reached');
@@ -37,6 +44,12 @@ class Timeline
       const next = document.querySelector("button.tl-slidenav-next");
       if (!next) {
         break;
+      }
+
+      const iframe = document.querySelector("iframe.tl-media-item");
+      if (iframe && iframe.contentDocument.readyState !== "complete") {
+        log("Waiting for embedded media content to load");
+        await Lib.sleep(5000);
       }
 
       log('Moving to next slide');

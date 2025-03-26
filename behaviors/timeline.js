@@ -17,7 +17,9 @@ class Timeline
     const { log, Lib, autofetcher } = ctx;
     let slides = 0;
 
-    log("Waiting for all page content to load");
+    log("Waiting at least 5 seconds or for all page content to load");
+    await Lib.sleep(5000);
+
     const iframe = document.querySelector("iframe");
     if (iframe && iframe.contentDocument.readyState !== "complete") {
       await Lib.sleep(5000);

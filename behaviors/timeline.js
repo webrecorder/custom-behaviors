@@ -40,7 +40,7 @@ class Timeline
 
     // Click on next until we're at last slide
     do {
-      const next = document.querySelector("button.tl-slidenav-next");
+      const next = iframeDoc.querySelector("button.tl-slidenav-next");
       if (!next) {
         break;
       }

@@ -25,6 +25,8 @@ class Timeline
 
     const iframeDoc = iframe.contentWindow.document;
 
+    yield {"slides": slides};
+
     // Click on previous as necessary until we're at first slide
     do {
       const previous = iframeDoc.querySelector("button.tl-slidenav-previous");

@@ -2,11 +2,10 @@ class Timeline
 {
   static id = "Timeline";
 
+  static runInIframe = true;
+
   static isMatch() {
-    return true;
-    // TODO: Investigate matching on presence of timeline.js rather than specific URL
-    // const url = "https://phd.aydeethegreat.com/a-timeline-of-campus-community-and-national-events-new"
-    // return window.location.href.startsWith(url) && window === window.top;
+    return window.location.href.startsWith("https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html");
   }
 
   static init() {
@@ -15,47 +14,39 @@ class Timeline
 
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
-    let slides = 0;
 
-    log("Waiting at least 5 seconds or for all page content to load");
-    await Lib.sleep(5000);
-
-    const iframe = document.querySelector("iframe");
-    if (iframe && iframe.contentDocument.readyState !== "complete") {
-      await Lib.sleep(5000);
-    }
-
-    const iframeDoc = iframe.contentWindow.document;
-
-    yield {"slides": slides};
+    yield Lib.getState(ctx, "Waiting for page to finish loading");
+    await Lib.awaitLoad();
 
     // Click on previous as necessary until we're at first slide
     do {
-      const previous = iframeDoc.querySelector("button.tl-slidenav-previous");
-      if (!previous) {
+      const previous = document.querySelector("button.tl-slidenav-previous");
+      if (!previous || !previous.checkVisibility()) {
         break;
       }
 
-      log('Moving to previous slide until first slide reached');
+      yield Lib.getState(ctx, "Moving to previous slide until first slide is reached");
       previous.click();
     } while(true);
 
     // Click on next until we're at last slide
     do {
-      const next = iframeDoc.querySelector("button.tl-slidenav-next");
-      if (!next) {
+      const next = document.querySelector("button.tl-slidenav-next");
+      if (!next || !next.checkVisibility()) {
         break;
       }
 
-      const mediaIframe = iframeDoc.querySelector("iframe.tl-media-item");
-      if (mediaIframe && mediaIframe.contentDocument.readyState !== "complete") {
-        log("Waiting for embedded media content to load");
-        await Lib.sleep(5000);
+      const mediaIframe = document.querySelector("iframe.tl-media-item");
+      if (mediaIframe) {
+        yield Lib.getState(ctx, "Waiting for embedded media content to load");
+        await Lib.awaitLoad(mediaIframe);
       }
 
-      log('Moving to next slide');
+      yield Lib.getState(ctx, "Moving to next slide", "slides");
       next.click();
-      yield {"slides": slides++};
+      await Lib.sleep(1000);
+      //await Lib.waitForNetworkIdle();
+
     } while(true);
   }
 }

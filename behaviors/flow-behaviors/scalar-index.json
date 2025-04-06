@@ -1,0 +1,400 @@
+{
+    "title": "CTS",
+    "steps": [
+        {
+            "type": "hover",
+            "target": "main",
+            "selectors": [
+                "aria/Table of Contents[role=\"menuitem\"]",
+                "li.mainMenu > a",
+                "xpath///*[@id=\"ScalarHeaderMenuLeft\"]/li[2]/a",
+                "pierce/li.mainMenu > a"
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Index"
+                ],
+                [
+                    "#indexLink > a"
+                ],
+                [
+                    "xpath///*[@id=\"indexLink\"]/a"
+                ],
+                [
+                    "pierce/#indexLink > a"
+                ]
+            ],
+            "offsetY": 9,
+            "offsetX": 96
+        },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+          {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Pages"
+                ],
+                [
+                    "#pageBtn > a"
+                ],
+                [
+                    "xpath///*[@id=\"pageBtn\"]/a"
+                ],
+                [
+                    "pierce/#pageBtn > a"
+                ],
+                [
+                    "text/Pages"
+                ]
+            ],
+            "offsetY": 25.1484375,
+            "offsetX": 49.203125
+        },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Media"
+                ],
+                [
+                    "#mediaBtn > a"
+                ],
+                [
+                    "xpath///*[@id=\"mediaBtn\"]/a"
+                ],
+                [
+                    "pierce/#mediaBtn > a"
+                ]
+            ],
+            "offsetY": 23.1484375,
+            "offsetX": 36.2109375
+        },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+ 
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Tags"
+                ],
+                [
+                    "#tagBtn > a"
+                ],
+                [
+                    "xpath///*[@id=\"tagBtn\"]/a"
+                ],
+                [
+                    "pierce/#tagBtn > a"
+                ],
+                [
+                    "text/Tags"
+                ]
+            ],
+            "offsetY": 24.1484375,
+            "offsetX": 27.953125
+        },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+ 
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Annotations"
+                ],
+                [
+                    "#annotationBtn > a"
+                ],
+                [
+                    "xpath///*[@id=\"annotationBtn\"]/a"
+                ],
+                [
+                    "pierce/#annotationBtn > a"
+                ],
+                [
+                    "text/Annotations"
+                ]
+            ],
+            "offsetY": 23.1484375,
+            "offsetX": 50.2734375
+        },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Comments"
+                ],
+                [
+                    "#replyBtn > a"
+                ],
+                [
+                    "xpath///*[@id=\"replyBtn\"]/a"
+                ],
+                [
+                    "pierce/#replyBtn > a"
+                ]
+            ],
+            "offsetY": 23.1484375,
+            "offsetX": 30.8203125
+        },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+      {
+          "type": "click",
+          "target": "main",
+          "selectors": [
+              "aria/›",
+              "li.nextPage > a",
+              "xpath//html/body/div[3]/div/div/div/ul[2]/li[4]/a",
+              "pierce/li.nextPage > a",
+              "text/›"
+          ],
+          "offsetX": 15.0703125,
+          "offsetY": 16.296875
+      },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Close"
+                ],
+                [
+                    "div:nth-of-type(3) button"
+                ],
+                [
+                    "xpath//html/body/div[3]/div/div/header/button"
+                ],
+                [
+                    "pierce/div:nth-of-type(3) button"
+                ]
+            ],
+            "offsetY": 19,
+            "offsetX": 22.5
+        }
+    ]
+}

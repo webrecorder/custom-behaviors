@@ -12,23 +12,21 @@ class Fulcrum
 
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
-    let pages = 0;
     const close = document.querySelector(".modal-dialog button");
     if (close) {
-      log("Close modal popup");
       close.click();
-      yield {"pages": 0};
+      //yield Lib.getState(ctx, "Close modal group");
     }
 
     const range = document.querySelector("input[type='range']");
 
     do {
       if (range) {
-        log(`At page ${range.value} of ${range.max}`);
+        yield Lib.getState(ctx, `Page position ${range.value} of ${range.max}`, "clicks");
       }
 
       if (range && Number(range.value) >= Number(range.max)) {
-        log("Done iterating through all pages!");
+        yield Lib.getState(ctx, "Done iterating through all pages!");
         break;
       }
 
@@ -48,8 +46,6 @@ class Fulcrum
       if (iframe && iframe.contentDocument.readyState !== "complete") {
         await Lib.sleep(5000);
       }
-
-      yield {"pages": pages++};
     } while(true);
   }
 }

@@ -12,7 +12,6 @@ class Fulcrum
 
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
-    let pages = 1;
     const close = document.querySelector(".modal-dialog button");
     if (close) {
       close.click();
@@ -23,7 +22,7 @@ class Fulcrum
 
     do {
       if (range) {
-        yield Lib.getState(ctx, `At page ${pages++} of ${range.max}`, "pages");
+        yield Lib.getState(ctx, `Page position ${range.value} of ${range.max}`, "clicks");
       }
 
       if (range && Number(range.value) >= Number(range.max)) {

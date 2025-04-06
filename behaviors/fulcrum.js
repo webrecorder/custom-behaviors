@@ -16,14 +16,14 @@ class Fulcrum
     const close = document.querySelector(".modal-dialog button");
     if (close) {
       close.click();
-      yield Lib.getState(ctx, "Close modal group");
+      //yield Lib.getState(ctx, "Close modal group");
     }
 
     const range = document.querySelector("input[type='range']");
 
     do {
       if (range) {
-        yield Lib.getState(ctx, `At page ${range.value} of ${range.max}`, "pages");
+        yield Lib.getState(ctx, `At page ${pages++} of ${range.max}`, "pages");
       }
 
       if (range && Number(range.value) >= Number(range.max)) {

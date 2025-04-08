@@ -2,6 +2,11 @@
     "title": "CTS",
     "steps": [
         {
+            "type": "customStep",
+            "name": "runOncePerCrawl",
+            "parameters": {}
+        },
+        {
             "type": "hover",
             "target": "main",
             "selectors": [

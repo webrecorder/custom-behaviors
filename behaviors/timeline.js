@@ -15,7 +15,7 @@ class Timeline
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
 
-    yield log("Waiting for page to finish loading");
+    yield log("Waiting for page to finish loading", "debug");
     await Lib.awaitLoad();
 
     // Click on previous as necessary until we're at first slide
@@ -36,12 +36,12 @@ class Timeline
         break;
       }
 
-      log("Waiting 3 seconds on new slide");
+      log("Waiting 3 seconds on new slide", "debug");
       await Lib.sleep(3000);
 
       const mediaIframe = document.querySelector("iframe.tl-media-item");
       if (mediaIframe) {
-        log("Waiting for embedded media content to load");
+        log("Waiting for embedded media content to load", "debug");
         try {
           await Lib.awaitLoad(mediaIframe);
         } catch (e) {}

@@ -1,3 +1,5 @@
+// Developed for https://phd.aydeethegreat.com/a-timeline-of-campus-community-and-national-events-new/
+
 class Timeline
 {
   static id = "TimelineJS";

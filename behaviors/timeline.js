@@ -37,8 +37,8 @@ class Timeline
         break;
       }
 
-      log("Waiting 3 seconds on new slide", "debug");
-      await Lib.sleep(3000);
+      log("Waiting 2 seconds on new slide", "debug");
+      await Lib.sleep(2000);
 
       const mediaIframe = document.querySelector("iframe.tl-media-item");
       if (mediaIframe) {

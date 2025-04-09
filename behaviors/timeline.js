@@ -36,6 +36,9 @@ class Timeline
         break;
       }
 
+      log("Waiting 3 seconds on new slide");
+      await Lib.sleep(3000);
+
       const mediaIframe = document.querySelector("iframe.tl-media-item");
       if (mediaIframe) {
         log("Waiting for embedded media content to load");

@@ -27,6 +27,7 @@ class Timeline
 
       log("Moving to previous slide until first slide is reached");
       previous.click();
+      await Lib.sleep(1000);
     } while(true);
 
     // Click on next until we're at last slide

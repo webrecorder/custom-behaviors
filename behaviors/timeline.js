@@ -1,6 +1,6 @@
 class Timeline
 {
-  static id = "Timeline";
+  static id = "TimelineJS";
 
   static runInIframe = true;
 
@@ -15,7 +15,7 @@ class Timeline
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
 
-    yield Lib.getState(ctx, "Waiting for page to finish loading");
+    yield log("Waiting for page to finish loading");
     await Lib.awaitLoad();
 
     // Click on previous as necessary until we're at first slide
@@ -25,7 +25,7 @@ class Timeline
         break;
       }
 
-      yield Lib.getState(ctx, "Moving to previous slide until first slide is reached");
+      log("Moving to previous slide until first slide is reached");
       previous.click();
     } while(true);
 
@@ -38,15 +38,17 @@ class Timeline
 
       const mediaIframe = document.querySelector("iframe.tl-media-item");
       if (mediaIframe) {
-        yield Lib.getState(ctx, "Waiting for embedded media content to load");
-        await Lib.awaitLoad(mediaIframe);
+        log("Waiting for embedded media content to load");
+        try {
+          await Lib.awaitLoad(mediaIframe);
+        } catch (e) {}
+        await Lib.sleep(2000);
       }
 
       yield Lib.getState(ctx, "Moving to next slide", "slides");
       next.click();
       await Lib.sleep(1000);
       //await Lib.waitForNetworkIdle();
-
     } while(true);
   }
 }

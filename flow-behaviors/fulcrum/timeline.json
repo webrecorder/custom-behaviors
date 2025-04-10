@@ -1,0 +1,144 @@
+{
+    "title": "Fulcrum Timeline",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1425,
+            "height": 709,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://phd.aydeethegreat.com/a-timeline-of-campus-community-and-national-events-new/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://phd.aydeethegreat.com/a-timeline-of-campus-community-and-national-events-new/",
+                    "title": "Owning My Masters: The Rhetorics of Rhymes and Revolutions | A Timeline of Campus, Community, and National Events"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=13uDbIXJvMgDci4zEo9BAKR8MPFMUCk9AUqeshfiJZvU&font=Default&lang=en&initial_zoom=2&height=100%",
+            "selectors": [
+                [
+                    "button.tl-slidenav-next div.tl-slidenav-icon"
+                ],
+                [
+                    "xpath///*[@id=\"tl-utjuuo\"]/button[2]/div/div[1]"
+                ],
+                [
+                    "pierce/button.tl-slidenav-next div.tl-slidenav-icon"
+                ]
+            ],
+            "offsetY": 12.5,
+            "offsetX": 15
+        },
+        {
+            "type": "click",
+            "target": "https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=13uDbIXJvMgDci4zEo9BAKR8MPFMUCk9AUqeshfiJZvU&font=Default&lang=en&initial_zoom=2&height=100%",
+            "selectors": [
+                [
+                    "button.tl-slidenav-next div.tl-slidenav-icon"
+                ],
+                [
+                    "xpath///*[@id=\"tl-utjuuo\"]/button[2]/div/div[1]"
+                ],
+                [
+                    "pierce/button.tl-slidenav-next div.tl-slidenav-icon"
+                ]
+            ],
+            "offsetY": 12.5,
+            "offsetX": 15
+        },
+        {
+            "type": "click",
+            "target": "https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=13uDbIXJvMgDci4zEo9BAKR8MPFMUCk9AUqeshfiJZvU&font=Default&lang=en&initial_zoom=2&height=100%",
+            "selectors": [
+                [
+                    "button.tl-slidenav-next div.tl-slidenav-icon"
+                ],
+                [
+                    "xpath///*[@id=\"tl-utjuuo\"]/button[2]/div/div[1]"
+                ],
+                [
+                    "pierce/button.tl-slidenav-next div.tl-slidenav-icon"
+                ]
+            ],
+            "offsetY": 12.5,
+            "offsetX": 15
+        },
+        {
+            "type": "click",
+            "target": "https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=13uDbIXJvMgDci4zEo9BAKR8MPFMUCk9AUqeshfiJZvU&font=Default&lang=en&initial_zoom=2&height=100%",
+            "selectors": [
+                [
+                    "button.tl-slidenav-next div.tl-slidenav-icon"
+                ],
+                [
+                    "xpath///*[@id=\"tl-utjuuo\"]/button[2]/div/div[1]"
+                ],
+                [
+                    "pierce/button.tl-slidenav-next div.tl-slidenav-icon"
+                ]
+            ],
+            "offsetY": 12.5,
+            "offsetX": 15
+        },
+        {
+            "type": "click",
+            "target": "https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=13uDbIXJvMgDci4zEo9BAKR8MPFMUCk9AUqeshfiJZvU&font=Default&lang=en&initial_zoom=2&height=100%",
+            "selectors": [
+                [
+                    "button.tl-slidenav-next div.tl-slidenav-icon"
+                ],
+                [
+                    "xpath///*[@id=\"tl-utjuuo\"]/button[2]/div/div[1]"
+                ],
+                [
+                    "pierce/button.tl-slidenav-next div.tl-slidenav-icon"
+                ]
+            ],
+            "offsetY": 12.5,
+            "offsetX": 15
+        },
+        {
+            "type": "click",
+            "target": "https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=13uDbIXJvMgDci4zEo9BAKR8MPFMUCk9AUqeshfiJZvU&font=Default&lang=en&initial_zoom=2&height=100%",
+            "selectors": [
+                [
+                    "button.tl-slidenav-next div.tl-slidenav-icon"
+                ],
+                [
+                    "xpath///*[@id=\"tl-utjuuo\"]/button[2]/div/div[1]"
+                ],
+                [
+                    "pierce/button.tl-slidenav-next div.tl-slidenav-icon"
+                ]
+            ],
+            "offsetY": 13.5,
+            "offsetX": 15
+        },
+        {
+            "type": "click",
+            "target": "https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=13uDbIXJvMgDci4zEo9BAKR8MPFMUCk9AUqeshfiJZvU&font=Default&lang=en&initial_zoom=2&height=100%",
+            "selectors": [
+                [
+                    "button.tl-slidenav-next div.tl-slidenav-icon"
+                ],
+                [
+                    "xpath///*[@id=\"tl-utjuuo\"]/button[2]/div/div[1]"
+                ],
+                [
+                    "pierce/button.tl-slidenav-next div.tl-slidenav-icon"
+                ]
+            ],
+            "offsetY": 13.5,
+            "offsetX": 15
+        }
+    ]
+}

@@ -1,0 +1,119 @@
+{
+    "title": "Illuminated Universe",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 989,
+            "height": 872,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://illuminateduniverse.org/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://illuminateduniverse.org/",
+                    "title": "Illuminated Universe – Translating Cosmic Light"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Older posts"
+                ],
+                [
+                    "div.wrapper button"
+                ],
+                [
+                    "xpath///*[@id=\"infinite-handle\"]/span/button"
+                ],
+                [
+                    "pierce/div.wrapper button"
+                ]
+            ],
+            "offsetY": 9.7109375,
+            "offsetX": 58.859375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Older posts"
+                ],
+                [
+                    "div.wrapper button"
+                ],
+                [
+                    "xpath///*[@id=\"infinite-handle\"]/span/button"
+                ],
+                [
+                    "pierce/div.wrapper button"
+                ]
+            ],
+            "offsetY": 11.53125,
+            "offsetX": 53.859375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Older posts"
+                ],
+                [
+                    "div.wrapper button"
+                ],
+                [
+                    "xpath///*[@id=\"infinite-handle\"]/span/button"
+                ],
+                [
+                    "pierce/div.wrapper button"
+                ]
+            ],
+            "offsetY": 15.3671875,
+            "offsetX": 47.859375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#infinite-handle > span"
+                ],
+                [
+                    "xpath///*[@id=\"infinite-handle\"]/span"
+                ],
+                [
+                    "pierce/#infinite-handle > span"
+                ]
+            ],
+            "offsetY": 41.5625,
+            "offsetX": 84.109375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#infinite-handle > span"
+                ],
+                [
+                    "xpath///*[@id=\"infinite-handle\"]/span"
+                ],
+                [
+                    "pierce/#infinite-handle > span"
+                ]
+            ],
+            "offsetY": 38.5859375,
+            "offsetX": 73.109375
+        }
+    ]
+}

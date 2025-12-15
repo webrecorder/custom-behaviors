@@ -14,10 +14,18 @@ class UNTHealthBehavior
     const { log, Lib, autofetcher } = ctx;
     let click = 0;
 
+    const seenElem = new WeakSet<HTMLElement>();
+
     const origHref = self.location.href;
 
     for await (const elem of document.querySelectorAll("button[ng-reflect-router-link]")) {
       if (elem.innerText && elem.innerText === "View") {
+        if (this.seenElem.has(elem)) {
+          continue;
+        }
+
+        this.seenElem.add(elem);
+
         elem.click();
         click++;
 

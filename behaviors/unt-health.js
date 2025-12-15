@@ -1,5 +1,7 @@
 class UNTHealthBehavior
 {
+  seenElem = new WeakSet<HTMLElement>();
+
   static id = "UNT Health";
 
   static isMatch() {
@@ -13,8 +15,6 @@ class UNTHealthBehavior
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
     let click = 0;
-
-    const seenElem = new WeakSet<HTMLElement>();
 
     const origHref = self.location.href;
 

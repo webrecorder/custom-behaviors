@@ -11,7 +11,7 @@ class UNTHealthProfileLinksBehavior
   }
 
   async* run(ctx) {
-    const { log, Lib, autofetcher } = ctx;
+    const { Lib } = ctx;
 
     const baseUrl = "https://profiles.unthsc.edu";
 

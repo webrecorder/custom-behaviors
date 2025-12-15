@@ -1,6 +1,6 @@
-class UNTHealthBehavior
+class UNTHealthProfileLinksBehavior
 {
-  static id = "UNT Health Scrape Links";
+  static id = "UNT Health Queue Profile Links";
 
   static isMatch() {
     return window.location.href === "https://profiles.unthsc.edu/home";

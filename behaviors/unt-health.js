@@ -12,42 +12,68 @@ class UNTHealthBehavior
     return {};
   }
 
+  nextViewButton() {
+    try {
+      const allViewButtons = document.querySelectorAll("button[ng-reflect-router-link]");
+      for (const elem of allViewButtons) {
+        if (!elem.innerText || elem.innerText !== "View") {
+          continue;
+        }
+        if (this.seenElem.has(elem)) {
+          continue;
+        }
+        this.seedElem.add(elem)
+        return elem;
+      }
+    } catch (e) {}
+  }
+
+  async processElem(elem) {
+    const origHref = self.location.href;
+    const origHistoryLen = self.history.length;
+
+    elem.click();
+
+    // wait a bit
+    await new Promise(r => setTimeout(r, 2000));
+
+    // if we navigated to new page, go back
+    if (
+      self.history.length === origHistoryLen + 1 &&
+      self.location.href != origHref
+    ) {
+      await new Promise((resolve) => {
+        window.addEventListener(
+          "popstate",
+          () => {
+            resolve(null);
+          },
+          { once: true },
+        );
+
+        window.history.back();
+      });
+    }
+  }
+
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
     let click = 0;
 
-    const origHref = self.location.href;
+    try {
+      while (true) {
+        const elem = this.nextViewButton():
 
-    for await (const elem of document.querySelectorAll("button[ng-reflect-router-link]")) {
-      if (elem.innerText && elem.innerText === "View") {
-        if (this.seenElem.has(elem)) {
-          continue;
+        if (!elem) {
+          break;
         }
 
-        this.seenElem.add(elem);
-
-        elem.click();
+        await this.processElem(elem);
         click++;
-
-        // wait a bit
-        await new Promise(r => setTimeout(r, 2000));
-
-        // if we navigated to new page, go back
-        if (self.location.href != origHref) {
-          await new Promise((resolve) => {
-            window.addEventListener(
-              "popstate",
-              () => {
-                resolve(null);
-              },
-              { once: true },
-            );
-
-            window.history.back();
-          });
-        }
         yield Lib.getState(ctx, "Clicked on profile view button", "click");
       }
+    } catch (e) {
+      ctx.log({msg: "Error cycling through View buttons", err: e.toString()})
     }
   }
 }

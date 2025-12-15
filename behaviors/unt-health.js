@@ -15,13 +15,11 @@ class UNTHealthBehavior
     let click = 0;
 
     for await (const elem of document.querySelectorAll("button[ng-reflect-router-link]")) {
-      if !(elem.innerText && elem.innerText === "View") {
-        continue;
+      if (elem.innerText && elem.innerText === "View") {
+        elem.click();
+        click++;
+        yield Lib.getState(ctx, "Clicked on profile view button", "click");
       }
-
-      elem.click();
-      click++;
-      yield Lib.getState(ctx, "Clicked on profile view button", "click");
     }
   }
 }

@@ -17,7 +17,7 @@ class UNTHealthBehavior
     for await (const elem of document.querySelectorAll("button[ng-reflect-router-link]")) {
       elem.click();
       click++;
-      yield Lib.getState("Clicked on profile view button", "click");
+      yield Lib.getState(ctx, "Clicked on profile view button", "click");
     }
   }
 }

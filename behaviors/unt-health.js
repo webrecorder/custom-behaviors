@@ -16,7 +16,7 @@ class UNTHealthBehavior
     try {
       const allViewButtons = document.querySelectorAll("button[ng-reflect-router-link]");
       for (const elem of allViewButtons) {
-        if (!elem.innerText || elem.innerText !== "View") {
+        if (!elem.innerText || elem.innerText != "View") {
           continue;
         }
         if (this.seenElem.has(elem)) {
@@ -30,7 +30,6 @@ class UNTHealthBehavior
 
   async processElem(elem) {
     const origHref = self.location.href;
-    const origHistoryLen = self.history.length;
 
     elem.click();
 
@@ -38,21 +37,8 @@ class UNTHealthBehavior
     await new Promise(r => setTimeout(r, 2000));
 
     // if we navigated to new page, go back
-    if (
-      self.history.length === origHistoryLen + 1 &&
-      self.location.href != origHref
-    ) {
-      await new Promise((resolve) => {
-        window.addEventListener(
-          "popstate",
-          () => {
-            resolve(null);
-          },
-          { once: true },
-        );
-
-        window.history.back();
-      });
+    if (self.location.href != origHref) {
+      window.history.back();
     }
   }
 

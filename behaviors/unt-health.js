@@ -1,6 +1,6 @@
 class UNTHealthBehavior
 {
-  seenElem = new WeakSet<HTMLElement>();
+  seenElem = new WeakSet();
 
   static id = "UNT Health";
 

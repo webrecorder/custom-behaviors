@@ -62,7 +62,7 @@ class UNTHealthBehavior
 
     try {
       while (true) {
-        const elem = this.nextViewButton():
+        const elem = this.nextViewButton()
 
         if (!elem) {
           break;

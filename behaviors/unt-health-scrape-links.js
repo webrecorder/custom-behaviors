@@ -33,7 +33,7 @@ class UNTHealthProfileLinksBehavior
 
         // Queue URL
         await Lib.addLink(urlToQueue);
-        yield Lib.getState(ctx, `Queued new URL: ${urlToQueue}`);
+        yield Lib.getState(ctx, `Queued new URL: ${urlToQueue}`, "queued");
       }
     }
   }

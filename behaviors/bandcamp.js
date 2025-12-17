@@ -28,9 +28,8 @@ class BandcampReleaseBehavior
       yield Lib.getState(ctx, "Clicked play track button");
     }
 
-    // click "more" to load more comments, wait until they load,
-    // then repeat
-    const initialWritingsCount = this.countWritings();
+    // click "more" to load more comments, wait until they load, then repeat
+    let lastWritingsCount = this.countWritings();
     ctx.log({msg: "Initial writings count", count: initialWritingsCount});
 
     while(true) {
@@ -48,10 +47,12 @@ class BandcampReleaseBehavior
       const newWritingsCount = this.countWritings();
       ctx.log({msg: "New writings count", count: newWritingsCount});
 
-      if (initialWritingsCount === newWritingsCount) {
-        ctx.log({msg: "No new writings loaded", count: initialWritingsCount});
+      if (newWritingsCount === lastWritingsCount) {
+        ctx.log({msg: "No new writings loaded, quitting", count: initialWritingsCount});
         break;
       }
+
+      lastWritingsCount = newWritingsCount;
     }
   }
 }

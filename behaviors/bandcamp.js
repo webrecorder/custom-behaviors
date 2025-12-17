@@ -12,7 +12,7 @@ class BandcampReleaseBehavior
 
   countWritings() {
     const writings = document.querySelectorAll("div.writing");
-    return writings.length;
+    return writings.length || 0;
   }
 
   async* run(ctx) {
@@ -41,12 +41,12 @@ class BandcampReleaseBehavior
 
       moreWritingsBtn.click();
 
-      await Lib.sleep(2000);
+      await Lib.sleep(4000);
 
       yield Lib.getState(ctx, "Click more writings button");
 
       const newWritingsCount = this.countWritings();
-      ctx.log({msg: "New writings count", count: initialWritingsCount});
+      ctx.log({msg: "New writings count", count: newWritingsCount});
 
       if (initialWritingsCount === newWritingsCount) {
         ctx.log({msg: "No new writings loaded", count: initialWritingsCount});

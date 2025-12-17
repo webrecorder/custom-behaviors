@@ -30,7 +30,7 @@ class BandcampReleaseBehavior
 
     // click "more" to load more comments, wait until they load, then repeat
     let lastWritingsCount = this.countWritings();
-    ctx.log({msg: "Initial writings count", count: initialWritingsCount});
+    ctx.log({msg: "Initial writings count", count: lastWritingsCount});
 
     while(true) {
       const moreWritingsBtn = document.querySelector("a.more-writing");

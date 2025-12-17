@@ -10,8 +10,9 @@ class BandcampReleaseBehavior
     return {};
   }
 
-  static countWritings() {
+  countWritings() {
     const writings = document.querySelectorAll("div.writing");
+    return writings.length;
   }
 
   async* run(ctx) {

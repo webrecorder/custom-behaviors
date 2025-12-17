@@ -48,7 +48,7 @@ class BandcampReleaseBehavior
       ctx.log({msg: "New writings count", count: newWritingsCount});
 
       if (newWritingsCount === lastWritingsCount) {
-        ctx.log({msg: "No new writings loaded, quitting", count: initialWritingsCount});
+        ctx.log({msg: "No new writings loaded, quitting"});
         break;
       }
 

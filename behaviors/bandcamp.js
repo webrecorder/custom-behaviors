@@ -24,23 +24,31 @@ class BandcampReleaseBehavior
       // wait two seconds to give audio time to start
       await Lib.sleep(2000);
 
-      await Lib.getState(ctx, "Clicked play track button", "click");
+      yield Lib.getState(ctx, "Clicked play track button");
     }
 
     // click "more" to load more comments, wait until they load,
     // then repeat
     const initialWritingsCount = this.countWritings();
+    ctx.log({msg: "Initial writings count", count: initialWritingsCount});
 
     while(true) {
       const moreWritingsBtn = document.querySelector("a.more-writing");
+      if (!moreWritingsBtn) {
+        break;
+      }
+
       moreWritingsBtn.click();
 
       await Lib.sleep(2000);
 
-      await Lib.getState(ctx, "Click more writings button", "click");
+      yield Lib.getState(ctx, "Click more writings button");
 
       const newWritingsCount = this.countWritings();
+      ctx.log({msg: "New writings count", count: initialWritingsCount});
+
       if (initialWritingsCount === newWritingsCount) {
+        ctx.log({msg: "No new writings loaded", count: initialWritingsCount});
         break;
       }
     }

@@ -83,7 +83,7 @@ class BandcampReleaseBehavior
       // wait one second just for good measure
       await Lib.sleep(1000);
 
-      yield Lib.getState(ctx, "Clicked play track button");
+      yield Lib.getState(ctx, "Played track", "tracksPlayed");
     }
   }
 }

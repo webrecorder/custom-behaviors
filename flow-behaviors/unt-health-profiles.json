@@ -1,0 +1,193 @@
+{
+    "title": "UNT Faculty Example",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1753,
+            "height": 315,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://profiles.unthsc.edu/home",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://profiles.unthsc.edu/home",
+                    "title": "UNT Health Fort Worth Faculty Profile"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div.col-md-7 > div > div:nth-of-type(1) button"
+                ],
+                [
+                    "xpath//html/body/app-root/app-home/main/app-home-directory/section/div/div/div[2]/div/div[1]/div[2]/button"
+                ],
+                [
+                    "pierce/div.col-md-7 > div > div:nth-of-type(1) button"
+                ]
+            ],
+            "offsetY": 24.8515625,
+            "offsetX": 31.6328125
+        },
+        {
+            "type": "navigate",
+            "url": "https://profiles.unthsc.edu/home",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://profiles.unthsc.edu/home",
+                    "title": "UNT Health Fort Worth Faculty Profile"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div.col-md-7 > div > div:nth-of-type(2) button"
+                ],
+                [
+                    "xpath//html/body/app-root/app-home/main/app-home-directory/section/div/div/div[2]/div/div[2]/div[2]/button"
+                ],
+                [
+                    "pierce/div.col-md-7 > div > div:nth-of-type(2) button"
+                ]
+            ],
+            "offsetY": 17.8515625,
+            "offsetX": 12.6328125
+        },
+        {
+            "type": "navigate",
+            "url": "https://profiles.unthsc.edu/home",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://profiles.unthsc.edu/home",
+                    "title": "UNT Health Fort Worth Faculty Profile"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div:nth-of-type(3) button"
+                ],
+                [
+                    "xpath//html/body/app-root/app-home/main/app-home-directory/section/div/div/div[2]/div/div[3]/div[2]/button"
+                ],
+                [
+                    "pierce/div:nth-of-type(3) button"
+                ]
+            ],
+            "offsetY": 12.8515625,
+            "offsetX": 31.6328125
+        },
+        {
+            "type": "navigate",
+            "url": "https://profiles.unthsc.edu/home",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://profiles.unthsc.edu/home",
+                    "title": "UNT Health Fort Worth Faculty Profile"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div:nth-of-type(4) button"
+                ],
+                [
+                    "xpath//html/body/app-root/app-home/main/app-home-directory/section/div/div/div[2]/div/div[4]/div[2]/button"
+                ],
+                [
+                    "pierce/div:nth-of-type(4) button"
+                ]
+            ],
+            "offsetY": 11.8515625,
+            "offsetX": 30.6328125
+        },
+        {
+            "type": "navigate",
+            "url": "https://profiles.unthsc.edu/home",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://profiles.unthsc.edu/home",
+                    "title": "UNT Health Fort Worth Faculty Profile"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div:nth-of-type(5) button"
+                ],
+                [
+                    "xpath//html/body/app-root/app-home/main/app-home-directory/section/div/div/div[2]/div/div[5]/div[2]/button"
+                ],
+                [
+                    "pierce/div:nth-of-type(5) button"
+                ]
+            ],
+            "offsetY": 11.8515625,
+            "offsetX": 21.6328125
+        },
+        {
+            "type": "navigate",
+            "url": "https://profiles.unthsc.edu/home",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://profiles.unthsc.edu/home",
+                    "title": "UNT Health Fort Worth Faculty Profile"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div:nth-of-type(6) button"
+                ],
+                [
+                    "xpath//html/body/app-root/app-home/main/app-home-directory/section/div/div/div[2]/div/div[6]/div[2]/button"
+                ],
+                [
+                    "pierce/div:nth-of-type(6) button"
+                ]
+            ],
+            "offsetY": 10.8515625,
+            "offsetX": 26.6328125
+        },
+        {
+            "type": "navigate",
+            "url": "https://profiles.unthsc.edu/home",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://profiles.unthsc.edu/home",
+                    "title": "UNT Health Fort Worth Faculty Profile"
+                }
+            ]
+        }
+    ]
+}

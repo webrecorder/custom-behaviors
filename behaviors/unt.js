@@ -15,7 +15,7 @@ class UNTFacultyProfileBehavior
 
     for await (const elem of document.querySelectorAll("button[ng-reflect-router-link]")) {
       const profileData = elem.getAttribute("ng-reflect-router-link");
-      Lib.getState(ctx, `Button profile data: ${profileData}`, "buttonsClicked");
+      yield Lib.getState(ctx, `Button profile data: ${profileData}`, "buttonsClicked");
     }
   }
 }

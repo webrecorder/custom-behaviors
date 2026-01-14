@@ -14,8 +14,8 @@ class BandcampBehavior
     return document.querySelectorAll("div.writings").length;
   }
 
-  async awaitPageLoad() {
-    const { Lib, log } = ctx;
+  async awaitPageLoad(ctx) {
+    const { Lib } = ctx;
 
     let lastWritingsCount = this.countWritings();
 
@@ -26,15 +26,15 @@ class BandcampBehavior
       }
 
       moreWritingsBtn.click();
-      log({msg: "Clicked more writings button"});
+      ctx.log({msg: "Clicked more writings button"});
 
       await Lib.sleep(3000);
 
       const newWritingsCount = this.countWritings();
-      log({msg: "New writings count", count: newWritingsCount});
+      ctx.log({msg: "New writings count", count: newWritingsCount});
 
       if (newWritingsCount === lastWritingsCount) {
-        ctx.log({msg: "No more new writings loaded, page is ready"});
+        ctx.log({msg: "No new writings loaded, page ready"});
         break;
       }
 
@@ -48,7 +48,29 @@ class BandcampBehavior
     for await (const elem of document.querySelectorAll("div.play_status")) {
       elem.click();
 
-      await Lib.sleep(2000);
+      // await Lib.sleep(2000);
+
+      const maxAttempts = 10;
+      let attempts = 0;
+      while(true) {
+        if (attempts >= maxAttempts) {
+          break;
+        }
+        attempts++;
+
+        const trackProgressBar = document.querySelector("div.progbar_empty div.thumb");
+        try {
+          const left = trackProgressBar.style.left;
+          if (left && left > "0px") {
+            ctx.log({msg: "Track started!"});
+            break;
+          }
+        } catch(e) {}
+
+        await Lib.sleep(500);
+      }
+
+      await Lib.sleep(1000);
 
       yield Lib.getState(ctx, "Played track", "tracksPlayed");
     }

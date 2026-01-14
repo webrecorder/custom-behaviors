@@ -11,8 +11,11 @@ class UNTFacultyProfileBehavior
   }
 
   async* run(ctx) {
+    const { Lib } = ctx;
+
     for await (const elem of document.querySelectorAll("button")) {
       elem.click();
+      yield Lib.getState(ctx, "Clicked a button!", "buttonsClicked");
     }
   }
 }

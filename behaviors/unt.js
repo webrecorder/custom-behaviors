@@ -13,9 +13,20 @@ class UNTFacultyProfileBehavior
   async* run(ctx) {
     const { Lib } = ctx;
 
+    const baseUrl = "https://profiles.unthsc.edu"
+
     for await (const elem of document.querySelectorAll("button[ng-reflect-router-link]")) {
       const profileData = elem.getAttribute("ng-reflect-router-link");
-      yield Lib.getState(ctx, `Button profile data: ${profileData}`, "buttonsClicked");
+
+      if (!profileData) {
+        continue;
+      }
+
+      const dataArray = profileData.split(",");
+      const urlToQueue = `${baseUrl}${dataArray[0]}/${dataArray[1]}`;
+
+      await Lib.addLink(urlToQueue);
+      yield Lib.getState(ctx, `Queued new URL: ${urlToQueue}`, "buttonsClicked");
     }
   }
 }

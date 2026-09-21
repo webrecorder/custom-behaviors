@@ -55,6 +55,13 @@ class MastodonCustomBehavior
         scrollIntoView(child);
       }
 
+      // If child is load more button, click it and wait
+      if (child && child?.tagName.toLowerCase() === "button") {
+        child.click();
+        await sleep(waitUnit * 5);
+      }
+
+      // Otherwise if it's a post, yield it
       if (child && child?.tagName.toLowerCase() === "article") {
         await sleep(waitUnit);
         yield child;

@@ -74,7 +74,7 @@ class MastodonCustomBehavior
     for await (const post of this.infScroll(ctx)) {
       await sleep(waitUnit * 2.5);
 
-      // queue as separate URL
+      // Queue post to capture separately
       if (post.hasAttribute("data-id")) {
         const dataId = post.getAttribute("data-id");
         yield getState(

@@ -8,7 +8,11 @@ class MastodonCustomBehavior
       "mastodon.social",
       "mstdn.social",
     ];
-    return knownMastodonHosts.includes(window.location.host);
+    const profilePageRegex = /^\/@[a-zA-Z0-9_@\.]+\/?$/;
+    return (
+      knownMastodonHosts.includes(window.location.host)
+      && window.location.pathname.match(profilePageRegex)
+    );
   }
 
   static init() {

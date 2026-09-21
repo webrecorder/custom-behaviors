@@ -75,7 +75,7 @@ class MastodonCustomBehavior
       }
 
       // Reveal text hidden behind content warning
-      const showMoreButton = xpathNode(Q.contentWarningButton, post) as HTMLElement | null;
+      const showMoreButton = xpathNode(Q.contentWarningButton, post);
       if (showMoreButton) {
         yield getState(ctx, "Expanding Content Warning", "contentWarnings");
         showMoreButton.click();

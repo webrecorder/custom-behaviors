@@ -1,20 +1,13 @@
-const Q = {
-  mastodonDiv: "//div[@id='mastodon']",
-  rootPath: "//div[@class='item-list' and @role='feed']",
-  contentWarningButton: "//div[@class='content-warning']/button",
-};
-
-const knownMastodonHosts = [
-  "digipres.club",
-  "mastodon.social",
-  "mstdn.social",
-];
-
 class MastodonCustomBehavior
 {
   static id = "Mastodon";
 
   static isMatch() {
+    const knownMastodonHosts = [
+      "digipres.club",
+      "mastodon.social",
+      "mstdn.social",
+    ];
     return knownMastodonHosts.includes(window.location.host);
   }
 
@@ -24,7 +17,7 @@ class MastodonCustomBehavior
 
   async *infScroll(ctx) {
     const { scrollIntoView, sleep, waitUnit, xpathNode } = ctx.Lib;
-    const root = xpathNode(Q.rootPath);
+    const root = xpathNode("//div[@class='item-list' and @role='feed']");
 
     if (!root) {
       return;
@@ -75,7 +68,7 @@ class MastodonCustomBehavior
       }
 
       // Reveal text hidden behind content warning
-      const showMoreButton = xpathNode(Q.contentWarningButton, post);
+      const showMoreButton = xpathNode("//div[@class='content-warning']/button", post);
       if (showMoreButton) {
         yield getState(ctx, "Expanding Content Warning", "contentWarnings");
         showMoreButton.click();

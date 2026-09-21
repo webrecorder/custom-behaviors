@@ -15,6 +15,21 @@ class MastodonCustomBehavior
     return {};
   }
 
+  async waitForNext(ctx, child) {
+    const { sleep, waitUnit } = ctx.Lib;
+    if (!child) {
+      return null;
+    }
+
+    await sleep(waitUnit * 2);
+
+    if (!child.nextElementSibling) {
+      return null;
+    }
+
+    return child.nextElementSibling;
+  }
+
   async *infScroll(ctx) {
     const { scrollIntoView, sleep, waitUnit, xpathNode } = ctx.Lib;
     const root = xpathNode("//div[@class='item-list' and @role='feed']");

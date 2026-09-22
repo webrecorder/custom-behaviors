@@ -1,4 +1,4 @@
-class MastodonProfileBehavior
+class MastodonProfile
 {
   static id = "MastodonProfile";
 

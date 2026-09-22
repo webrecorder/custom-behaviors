@@ -84,7 +84,7 @@ class MastodonProfile
     const tabs = ["featured", "with_replies", "media"];
     for (const tabName of tabs) {
       const tabUrl = `${window.location.href}/${tabName}`;
-      await addLink(postUrl);
+      await addLink(tabUrl);
     }
 
     for await (const post of this.infScroll(ctx)) {

@@ -1,14 +1,19 @@
-class MastodonCustomBehavior
+class MastodonProfileBehavior
 {
-  static id = "Mastodon";
+  static id = "MastodonProfile";
 
   static isMatch() {
+    // Run on known Mastodon hosts, only on profile pages
+    // e.g.:
+    // https://digipres.club/@dpc_chat
+    // https://digipres.club/@dpc_chat/with_replies
+    // https://digipres.club/@dpc_chat/media
     const knownMastodonHosts = [
       "digipres.club",
       "mastodon.social",
       "mstdn.social",
     ];
-    const profilePageRegex = /^\/@[a-zA-Z0-9_@\.]+\/?$/;
+    const profilePageRegex = /^\/@[a-zA-Z0-9_@\.]+\/?[a-zA-Z_]*$/;
     return (
       knownMastodonHosts.includes(window.location.host)
       && window.location.pathname.match(profilePageRegex)

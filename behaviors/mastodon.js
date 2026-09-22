@@ -80,6 +80,13 @@ class MastodonProfileBehavior
     yield log("Waiting for page to finish loading", "debug");
     await awaitLoad();
 
+    // Queue other tabs
+    const tabs = ["featured", "with_replies", "media"];
+    for (const tabName of tabs) {
+      const tabUrl = `${window.location.href}/${tabName}`;
+      await addLink(postUrl);
+    }
+
     for await (const post of this.infScroll(ctx)) {
       await sleep(waitUnit * 2.5);
 

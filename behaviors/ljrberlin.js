@@ -14,7 +14,7 @@ class BerlinTimeline
     const { scrollIntoView, sleep, waitUnit, xpathNode, xpathNodes, getState } = ctx.Lib;
 
     do {
-      const pageEvents = xpathNodes("//div[contains(@class, 'node--type-event')");
+      const pageEvents = xpathNodes("//div[@class='node--type-event']");
 
       for (const pageEvent of pageEvents) {
         yield getState(ctx, "New event", "events");
@@ -46,7 +46,7 @@ class BerlinTimeline
 
     const { sleep, waitUnit, getState, xpathNodes } = Lib;
 
-    const categoryRadios = xpathNodes("//input[contains(@class, 'form-radio')");
+    const categoryRadios = xpathNodes("//input[@class='form-radio']");
 
     for (const categoryRadio of categoryRadios) {
       await sleep(waitUnit * 5);

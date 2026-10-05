@@ -14,14 +14,14 @@ class BerlinTimeline
     const { scrollIntoView, sleep, waitUnit, xpathNode, xpathNodes, getState } = ctx.Lib;
 
     do {
-      const events = xpathNodes("//div[contains(@class, 'node--type-event')");
+      const pageEvents = xpathNodes("//div[contains(@class, 'node--type-event')");
 
-      for (const event of events) {
+      for (const pageEvent of pageEvents) {
         yield getState(ctx, "New event", "events");
-        scrollIntoView(event);
+        scrollIntoView(pageEvent);
 
         // gather links
-        const eventAnchors = xpathNodes("//a", event);
+        const eventAnchors = xpathNodes("//a", pageEvent);
         for (const eventAnchor of eventAnchors) {
           const link = eventAnchor.getAttribute("href");
           if (link) {
@@ -35,16 +35,16 @@ class BerlinTimeline
         break;
       }
 
-      yield Lib.getState(ctx, "Moving to next page", "pages");
+      yield getState(ctx, "Moving to next page", "pages");
       next.click();
-      await Lib.sleep(3000);
+      await sleep(3000);
     } while(true);
   }
 
   async* run(ctx) {
     const { log, Lib, autofetcher } = ctx;
 
-    const { sleep, waitUnit, xpathNodes } = Lib;
+    const { sleep, waitUnit, getState, xpathNodes } = Lib;
 
     const categoryRadios = xpathNodes("//input[contains(@class, 'form-radio')");
 
@@ -57,9 +57,9 @@ class BerlinTimeline
         await sleep(waitUnit * 10);
       }
 
-      yield Lib.getState(ctx, "Processing new cateogry", "categories")
+      yield getState(ctx, "Processing new cateogry", "categories")
 
-      await Lib.sleep(5000);
+      await sleep(5000);
 
       await iteratePages(ctx);
     }

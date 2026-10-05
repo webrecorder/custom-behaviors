@@ -10,7 +10,7 @@ class BerlinTimeline
     return {};
   }
 
-  async iteratePages(ctx) {
+  async* iteratePages(ctx) {
     const { scrollIntoView, sleep, waitUnit, xpathNode, xpathNodes, getState } = ctx.Lib;
 
     do {
@@ -57,7 +57,7 @@ class BerlinTimeline
         await sleep(waitUnit * 10);
       }
 
-      yield getState(ctx, "Processing new cateogry", "categories")
+      yield getState(ctx, "Processing new category", "categories")
 
       await sleep(5000);
 

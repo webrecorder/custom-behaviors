@@ -61,7 +61,7 @@ class BerlinTimeline
 
       await sleep(5000);
 
-      await iteratePages(ctx);
+      await this.iteratePages(ctx);
     }
   }
 }

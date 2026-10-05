@@ -14,15 +14,12 @@ class BerlinTimeline
     const { scrollIntoView, sleep, waitUnit, xpathNode, xpathNodes, getState } = ctx.Lib;
 
     do {
-      const pageEvents = xpathNodes("//div[@class='node--type-event']");
-
-      for (const pageEvent of pageEvents) {
+      for (const pageEvent of Array.from(xpathNodes("//div[@class='node--type-event']"))) {
         yield getState(ctx, "New event", "events");
         scrollIntoView(pageEvent);
 
         // gather links
-        const eventAnchors = xpathNodes("//a", pageEvent);
-        for (const eventAnchor of eventAnchors) {
+        for (const eventAnchor of Array.from(xpathNodes("//a", pageEvent))) {
           const link = eventAnchor.getAttribute("href");
           if (link) {
             await addLink(link);
@@ -46,9 +43,7 @@ class BerlinTimeline
 
     const { sleep, waitUnit, getState, xpathNodes } = Lib;
 
-    const categoryRadios = xpathNodes("//input[@class='form-radio']");
-
-    for (const categoryRadio of categoryRadios) {
+    for (const categoryRadio of Array.from(xpathNodes("//input[@class='form-radio']"))) {
       await sleep(waitUnit * 5);
 
       // if button's not already checked, click it and wait for new content

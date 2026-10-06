@@ -43,13 +43,16 @@ class BerlinTimeline
 
     const { sleep, waitUnit, getState, xpathNodes } = Lib;
 
+    let seenCategories = new Set();
+
     for (const categoryRadio of Array.from(xpathNodes("//input[@class='form-radio']"))) {
       await sleep(waitUnit * 5);
 
       // if button's not already checked, click it and wait for new content
-      if (!categoryRadio.hasAttribute("checked")) {
+      if (!seenCategories.includes(categoryRadio)) {
         categoryRadio.click();
-        await sleep(waitUnit * 10);
+        await sleep(2000);
+        seenCategories.add(categoryRadio);
       }
 
       yield getState(ctx, "Processing new category", "categories")

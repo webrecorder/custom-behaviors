@@ -11,18 +11,22 @@ class BerlinTimeline
   }
 
   async* iteratePages(ctx) {
+    const { log } = ctx;
     const { scrollIntoView, sleep, waitUnit, getState } = ctx.Lib;
 
     do {
       const pageEvents = document.querySelectorAll("div.node--type-event");
+      log(`Events found: ${pageEvents.length}`, "debug");
       for (const pageEvent of pageEvents) {
         yield getState(ctx, "New event", "events");
         scrollIntoView(pageEvent);
 
         // gather links
         const eventAnchors = pageEvent.querySelectorAll("a");
+        log(`anchor tags: ${eventAnchors.length}`, "debug");
         for (const eventAnchor of eventAnchors) {
           const link = eventAnchor.getAttribute("href");
+          log(`link: ${link}`, "debug");
           if (link) {
             await addLink(link);
           }
@@ -31,6 +35,7 @@ class BerlinTimeline
 
       const next = document.querySelector("a[rel='next']");
       if (!next || !next.checkVisibility()) {
+        log("no next button", "debug");
         break;
       }
 

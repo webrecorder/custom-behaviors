@@ -49,7 +49,7 @@ class BerlinTimeline
       await sleep(waitUnit * 5);
 
       // if button's not already checked, click it and wait for new content
-      if (!seenCategories.includes(categoryRadio)) {
+      if (!seenCategories.has(categoryRadio)) {
         categoryRadio.click();
         await sleep(2000);
         seenCategories.add(categoryRadio);

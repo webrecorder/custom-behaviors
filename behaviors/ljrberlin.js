@@ -12,7 +12,7 @@ class BerlinTimeline
 
   async iteratePages(ctx) {
     const { log } = ctx;
-    const { scrollIntoView, sleep, waitUnit } = ctx.Lib;
+    const { scrollIntoView, sleep, waitUnit, addLink } = ctx.Lib;
 
     do {
       const pageEvents = document.querySelectorAll("div.node--type-event");

@@ -14,7 +14,7 @@ class BerlinTimeline
     const { scrollIntoView, sleep, waitUnit, getState } = ctx.Lib;
 
     do {
-      const pageEvents = document.querySelectorAll("div[data-history-node-id]");
+      const pageEvents = document.querySelectorAll("div.node--type-event");
       for (const pageEvent of pageEvents) {
         yield getState(ctx, "New event", "events");
         scrollIntoView(pageEvent);
@@ -55,10 +55,10 @@ class BerlinTimeline
       }
 
       // if button's not already checked, click it and wait for new content
-      if (!seenCategories.has(categoryRadio)) {
+      if (!seenCategories.has(categoryRadio.id)) {
         categoryRadio.click();
         await sleep(2000);
-        seenCategories.add(categoryRadio);
+        seenCategories.add(categoryRadio.id;
       }
 
       yield getState(ctx, "Processing new category", "categories")

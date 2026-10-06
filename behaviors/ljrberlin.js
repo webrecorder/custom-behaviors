@@ -58,10 +58,10 @@ class BerlinTimeline
       if (!seenCategories.has(categoryRadio.id)) {
         categoryRadio.click();
         await sleep(2000);
-        seenCategories.add(categoryRadio.id;
+        seenCategories.add(categoryRadio.id);
       }
 
-      yield getState(ctx, "Processing new category", "categories")
+      yield getState(ctx, "Processing new category", "categories");
 
       await sleep(5000);
 

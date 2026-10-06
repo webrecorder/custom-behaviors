@@ -10,15 +10,15 @@ class BerlinTimeline
     return {};
   }
 
-  async* iteratePages(ctx) {
+  async iteratePages(ctx) {
     const { log } = ctx;
-    const { scrollIntoView, sleep, waitUnit, getState } = ctx.Lib;
+    const { scrollIntoView, sleep, waitUnit } = ctx.Lib;
 
     do {
       const pageEvents = document.querySelectorAll("div.node--type-event");
       log(`Events found: ${pageEvents.length}`, "debug");
       for (const pageEvent of pageEvents) {
-        yield getState(ctx, "New event", "events");
+        log("New event", "debug");
         scrollIntoView(pageEvent);
 
         // gather links
@@ -39,7 +39,7 @@ class BerlinTimeline
         break;
       }
 
-      yield getState(ctx, "Moving to next page", "pages");
+      log("moving on to next page", "debug");
       next.click();
       await sleep(3000);
     } while(true);

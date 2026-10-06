@@ -14,19 +14,21 @@ class BerlinTimeline
     const { log } = ctx;
     const { scrollIntoView, sleep, waitUnit, addLink } = ctx.Lib;
 
+    let pageCount = 0;
+
     do {
+      pageCount ++;
       const pageEvents = document.querySelectorAll("div.node--type-event");
-      log(`Events found: ${pageEvents.length}`, "debug");
+      log(`Events found on page ${pageCount}: ${pageEvents.length}`, "debug");
       for (const pageEvent of pageEvents) {
         log("New event", "debug");
         scrollIntoView(pageEvent);
 
         // gather links
         const eventAnchors = pageEvent.querySelectorAll("a");
-        log(`anchor tags: ${eventAnchors.length}`, "debug");
         for (const eventAnchor of eventAnchors) {
           const link = eventAnchor.getAttribute("href");
-          log(`link: ${link}`, "debug");
+          log(`Adding link: ${link}`, "debug");
           if (link) {
             await addLink(link);
           }
@@ -35,11 +37,11 @@ class BerlinTimeline
 
       const next = document.querySelector("a[rel='next']");
       if (!next || !next.checkVisibility()) {
-        log("no next button", "debug");
+        log("No next button, finished iterating pages for category", "debug");
         break;
       }
 
-      log("moving on to next page", "debug");
+      log("Moving on to next page", "debug");
       next.click();
       await sleep(3000);
     } while(true);

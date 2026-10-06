@@ -24,7 +24,8 @@ class BerlinTimeline
         log("New event", "debug");
         scrollIntoView(pageEvent);
 
-        // gather links
+        // gather links - for events after first page especially,
+        // the broad crawl may have missed some
         const eventAnchors = pageEvent.querySelectorAll("a");
         for (const eventAnchor of eventAnchors) {
           const link = eventAnchor.getAttribute("href");

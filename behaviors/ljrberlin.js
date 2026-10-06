@@ -14,7 +14,7 @@ class BerlinTimeline
     const { scrollIntoView, sleep, waitUnit, xpathNode, xpathNodes, getState } = ctx.Lib;
 
     do {
-      for (const pageEvent of Array.from(xpathNodes("//div[@class='node--type-event']"))) {
+      for (const pageEvent of Array.from(xpathNodes("//div[@data-history-node-id]"))) {
         yield getState(ctx, "New event", "events");
         scrollIntoView(pageEvent);
 

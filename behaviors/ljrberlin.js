@@ -11,15 +11,17 @@ class BerlinTimeline
   }
 
   async* iteratePages(ctx) {
-    const { scrollIntoView, sleep, waitUnit, xpathNode, xpathNodes, getState } = ctx.Lib;
+    const { scrollIntoView, sleep, waitUnit, getState } = ctx.Lib;
 
     do {
-      for (const pageEvent of Array.from(xpathNodes("//div[@data-history-node-id]"))) {
+      const pageEvents = document.querySelectorAll("div[data-history-node-id]");
+      for (const pageEvent of pageEvents) {
         yield getState(ctx, "New event", "events");
         scrollIntoView(pageEvent);
 
         // gather links
-        for (const eventAnchor of Array.from(xpathNodes("//a", pageEvent))) {
+        const eventAnchors = pageEvent.querySelectorAll("a");
+        for (const eventAnchor of eventAnchors) {
           const link = eventAnchor.getAttribute("href");
           if (link) {
             await addLink(link);
@@ -27,7 +29,7 @@ class BerlinTimeline
         }
       }
 
-      const next = xpathNode("//a[rel='next']");
+      const next = document.querySelector("a[rel='next']");
       if (!next || !next.checkVisibility()) {
         break;
       }
@@ -39,14 +41,18 @@ class BerlinTimeline
   }
 
   async* run(ctx) {
-    const { log, Lib, autofetcher } = ctx;
-
-    const { sleep, waitUnit, getState, xpathNodes } = Lib;
+    const { log, autofetcher } = ctx;
+    const { sleep, waitUnit, getState } = ctx.Lib;
 
     let seenCategories = new Set();
 
-    for (const categoryRadio of Array.from(xpathNodes("//input[@class='form-radio']"))) {
+    const categoryRadios = document.querySelectorAll("input.form-radio");
+    for (const categoryRadio of categoryRadios) {
       await sleep(waitUnit * 5);
+
+      if (!categoryRadio) {
+        continue;
+      }
 
       // if button's not already checked, click it and wait for new content
       if (!seenCategories.has(categoryRadio)) {
